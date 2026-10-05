@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lantern Fans · The Brightest Meme Coin</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0b0e14;
+            font-family: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+            color: #f0e9d8;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 1.5rem;
+            background-image: radial-gradient(circle at 30% 10%, #2a2f3a 0%, #0b0e14 80%);
+        }
+
+        .glow-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(18, 22, 30, 0.8);
+            backdrop-filter: blur(4px);
+            border-radius: 3rem 3rem 2rem 2rem;
+            box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.8), 0 0 0 2px #f3b33d22, 0 0 30px #f3b33d40;
+            padding: 2rem 2rem 2.5rem;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(243, 179, 61, 0.3);
+        }
+
+        /* header / logo */
+        .lantern-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .lantern-icon {
+            font-size: 4.5rem;
+            color: #f3b33d;
+            filter: drop-shadow(0 0 20px #f3b33daa);
+            margin-bottom: 0.5rem;
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.9; text-shadow: 0 0 10px #f3b33d, 0 0 20px #f39c12; }
+            50% { opacity: 1; text-shadow: 0 0 20px #ffb347, 0 0 40px #f39c12; }
+            100% { opacity: 0.95; text-shadow: 0 0 15px #f3b33d, 0 0 30px #e67e22; }
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #f9e7b3 0%, #f3b33d 40%, #e67e22 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px #f3b33d55;
+            line-height: 1.1;
+        }
+
+        .ticker {
+            font-size: 1.3rem;
+            background: #1e2530;
+            display: inline-block;
+            padding: 0.3rem 1.5rem;
+            border-radius: 40px;
+            border: 1px solid #f3b33d;
+            color: #ffd966;
+            box-shadow: 0 0 15px #f3b33d66;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* contract row */
+        .contract-box {
+            background: #0f131c;
+            border-radius: 3rem;
+            padding: 0.9rem 1.5rem;
+            margin: 1.5rem 0 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem 1rem;
+            border: 1px solid #f3b33d55;
+            box-shadow: inset 0 0 15px #00000055, 0 8px 0 #00000030;
+        }
+
+        .contract-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #b9aa87;
+            font-weight: 500;
+        }
+
+        .contract-address {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+            background: #1a212c;
+            padding: 0.4rem 1.2rem;
+            border-radius: 2rem;
+            color: #f9d77e;
+            border: 1px dashed #f3b33d;
+            word-break: break-all;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .copy-btn {
+            background: #f3b33d;
+            border: none;
+            color: #0b0e14;
+            font-weight: 700;
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s;
+            box-shadow: 0 4px 0 #9e6d1a;
+            border: 1px solid #ffd966;
+        }
+
+        .copy-btn:hover {
+            background: #ffc85e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #9e6d1a;
+        }
+
+        .copy-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 #9e6d1a;
+        }
+
+        /* main grid */
+        .memes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 2rem;
+        }
+
+        .meme-card {
+            background: linear-gradient(145deg, #1a212c, #121721);
+            border-radius: 2rem;
+            padding: 1.8rem 1rem 1.5rem;
+            text-align: center;
+            border: 1px solid #f3b33d33;
+            box-shadow: 0 15px 25px -10px #000000, 0 0 0 1px #f3b33d22;
+            transition: 0.2s;
+        }
+
+        .meme-card:hover {
+            transform: scale(1.02);
+            border-color: #f3b33d99;
+            box-shadow: 0 20px 30px -10px #000000, 0 0 20px #f3b33d40;
+        }
+
+        .meme-emoji {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            filter: drop-shadow(0 0 8px #f3b33d);
+        }
+
+        .meme-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f3d58c;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .meme-card p {
+            color: #b9b09b;
+            font-size: 0.95rem;
+            padding: 0 0.5rem;
+        }
+
+        /* pumpfun cta */
+        .cta-pump {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1.2rem 0 1rem;
+        }
+
+        .pump-btn {
+            background: linear-gradient(135deg, #24d16b, #0f9b4b);
+            border: none;
+            border-radius: 60px;
+            padding: 1rem 3.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0b0e14;
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 12px 0 #0a4f28, 0 0 30px #24d16b80;
+            transition: all 0.15s;
+            border: 1px solid #8effb0;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .pump-btn i {
+            font-size: 1.9rem;
+        }
+
+        .pump-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 0 #0a4f28, 0 0 40px #24d16bcc;
+            background: linear-gradient(135deg, #2ee87a, #11b358);
+        }
+
+        .pump-btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 6px 0 #0a4f28, 0 0 30px #24d16b;
+        }
+
+        .pump-note {
+            margin-top: 1rem;
+            color: #a9b7c9;
+            font-size: 0.9rem;
+            background: #1d2531;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            border: 1px solid #f3b33d55;
+        }
+
+        /* footer */
+        .footer-note {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            color: #7e8a9b;
+            font-size: 0.9rem;
+            border-top: 1px solid #2f3540;
+            padding-top: 1.5rem;
+        }
+
+        .footer-note a {
+            color: #f3b33d;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+            color: #ffd966;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin: 0.5rem 0 0.8rem;
+        }
+
+        .social-icons a {
+            color: #b9aa87;
+            font-size: 1.6rem;
+            transition: 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #f3b33d;
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 8px #f3b33d);
+        }
+
+        /* responsiveness */
+        @media (max-width: 650px) {
+            .glow-wrapper {
+                padding: 1.5rem 1rem 2rem;
+                border-radius: 2rem;
+            }
+            h1 {
+                font-size: 2.6rem;
+            }
+            .lantern-icon {
+                font-size: 3.2rem;
+            }
+            .pump-btn {
+                font-size: 1.2rem;
+                padding: 0.9rem 2rem;
+            }
+            .pump-btn i {
+                font-size: 1.5rem;
+            }
+            .contract-box {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .contract-address {
+                font-size: 0.95rem;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .ticker {
+                font-size: 1rem;
+            }
+            .meme-card h3 {
+                font-size: 1.2rem;
+            }
+            .pump-btn {
+                font-size: 1rem;
+                padding: 0.7rem 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-wrapper">
+        <!-- header -->
+        <div class="lantern-header">
+            <div class="lantern-icon">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <h1>LANTERN FANS</h1>
+            <div class="ticker">$LANTERN · THE LIGHT OF MEMES</div>
+        </div>
+
+        <!-- contract address + copy -->
+        <div class="contract-box">
+            <span class="contract-label"><i class="fas fa-scroll"></i> Contract</span>
+            <span class="contract-address" id="contractAddress">7Fb9gXpLrWmYq3N8vTzKc2sJd4Hn6Rf1Pq5Ae8Uw3Bv</span>
+            <button class="copy-btn" id="copyBtn"><i class="fas fa-copy"></i> Copy</button>
+        </div>
+
+        <!-- meme cards / features -->
+        <div class="memes-grid">
+            <div class="meme-card">
+                <div class="meme-emoji">🏮</div>
+                <h3>Glow Hard</h3>
+                <p>Literally the brightest community on Solana. We light the way to Valhalla.</p>
+            </div>
+            <div class="meme-card">
+                <div class="meme-emoji">🕯️</div>
+                <h3>Flicker Army</h3>
+                <p>No dark rooms. Only lantern fans. Holders get automatic glow privileges.</p>
+            </div>
+            <div class="meme-card">
+                <div class="meme-emoji">⚡</div>
+                <h3>Pump.fun Ready</h3>
+                <p>Fair launch. No presale. Just pure meme energy and a matchstick.</p>
+            </div>
+        </div>
+
+        <!-- pump.fun CTA button -->
+        <div class="cta-pump">
+            <a href="#" class="pump-btn" id="pumpFunLink" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-fire"></i> BUY ON PUMP.FUN <i class="fas fa-rocket"></i>
+            </a>
+            <div class="pump-note">
+                <i class="fas fa-link"></i> Launching live on Pump.fun — ape responsibly.
+            </div>
+        </div>
+
+        <!-- socials / extra -->
+        <div class="social-icons">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <!-- footer -->
+        <div class="footer-note">
+            <span>© 2025 Lantern Fans · $LANTERN</span>
+            <span>🔦 HODL THE LIGHT</span>
+            <span><i class="fas fa-heart" style="color: #f3b33d;"></i> Community driven</span>
+        </div>
+    </div>
+
+    <script>
+        // ========== CONFIGURATION ==========
+        // 1. Paste your actual Pump.fun link here (or any URL you want the button to go to)
+        const PUMP_FUN_URL = "https://pump.fun/";   // <-- REPLACE WITH YOUR PUMP.FUN COIN LINK
+        
+        // 2. Set the contract address (display only + copy)
+        const CONTRACT_ADDRESS = "7Fb9gXpLrWmYq3N8vTzKc2sJd4Hn6Rf1Pq5Ae8Uw3Bv";  // <-- REPLACE WITH ACTUAL CONTRACT
+
+        // ========== APPLY CONFIG ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update contract address display
+            const contractSpan = document.getElementById('contractAddress');
+            if (contractSpan) {
+                contractSpan.textContent = CONTRACT_ADDRESS;
+            }
+
+            // Update pump.fun button link
+            const pumpBtn = document.getElementById('pumpFunLink');
+            if (pumpBtn) {
+                pumpBtn.href = PUMP_FUN_URL;
+            }
+
+            // ---------- COPY BUTTON ----------
+            const copyBtn = document.getElementById('copyBtn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+                        // visual feedback
+                        const originalHTML = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                        copyBtn.style.background = '#24d16b';
+                        copyBtn.style.color = '#0b0e14';
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalHTML;
+                            copyBtn.style.background = '#f3b33d';
+                            copyBtn.style.color = '#0b0e14';
+                        }, 1500);
+                    } catch (err) {
+                        alert('Failed to copy — please copy manually.');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
